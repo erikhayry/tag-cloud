@@ -1,0 +1,24 @@
+@import "../../../styles/variables";
+
+.tag-cloud{
+  text-align: center;
+}
+
+.tag-cloud-item{
+  padding: @spacing;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFF;
+  display: inline-block;
+  margin: @spacing-sm;
+  animation: fadeIn 1s linear forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    color: rgba(255, 255, 255, 0)
+  }
+  100% {
+    color: rgba(255, 255, 255, 1);
+  }
+}

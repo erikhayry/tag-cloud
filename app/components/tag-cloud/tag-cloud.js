@@ -1,8 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import TagCloudItem from './tag-cloud-item'
 
 const TagCloud = ({ items, getTags, isLoading }) => {
     let classNameState = isLoading ? 'is-loading' : '';
+    let max = items.reduce((acc, val) => {
+           return acc > val.count ? acc : val.count;
+    }, 0);
 
     return (
         //TODO accessibility
@@ -10,9 +14,7 @@ const TagCloud = ({ items, getTags, isLoading }) => {
             {items.length > 0 &&
             <ul className={"tag-cloud " +  classNameState}>
                 {items.map((item, index) =>
-                    <li key={index}>
-                        {item.section} : {item.count}
-                    </li>
+                    <TagCloudItem key={index} index={index} section={item.section} count={item.count} max={max}/>
                 )}
             </ul>
             }
