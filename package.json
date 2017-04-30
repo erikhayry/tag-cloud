@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node server.js",
+    "start": "node server/index.js",
     "start-dev": "webpack-dev-server --progress --colors",
     "build": "webpack"
   },
@@ -14,6 +14,7 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "prop-types": "^15.5.8",
+    "query-string": "^4.3.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",

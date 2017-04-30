@@ -1,13 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const TagCloudItem = ({ section, count, max, index}) => {
-    let percentage = (count / max) * 100;
-    let colorPercentage = percentage < 10 ? 10 : percentage;
-    let fontSize= percentage / 10 < 1 ? 1 : percentage / 10;
+const TagCloudItem = ({ name, count, max, index}) => {
+    const percentage = (count / max) * 100;
+
+    const colorPercentageMin = 10;
+    const colorPercentage = percentage < colorPercentageMin ? colorPercentageMin : percentage;
+
+    const fontSizeMin = 20;
+    const fontSize= percentage < fontSizeMin ? fontSizeMin : percentage;
+    
     const style = {
         backgroundColor: 'hsla(4, '+ colorPercentage +'%, 58%, 1)',
-        fontSize:  fontSize + 'rem',
+        fontSize:  fontSize + '%',
         color: 'rgba(255,255,255,0)',
         animationDelay: index * 50 + 'ms'
     };
@@ -15,13 +20,13 @@ const TagCloudItem = ({ section, count, max, index}) => {
     return (
         //TODO accessibility
         <li className="tag-cloud-item" style={style}>
-            {section}
+            {name}
         </li>
     )
 };
 
 TagCloudItem.propTypes = {
-    section: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     count: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired,
     index: PropTypes.number.isRequired

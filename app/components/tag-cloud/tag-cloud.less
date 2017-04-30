@@ -2,6 +2,11 @@
 
 .tag-cloud{
   text-align: center;
+  font-size: 3rem;
+
+  @media screen and (min-width: @screen-lg) {
+    font-size: 6rem;
+  }
 }
 
 .tag-cloud-item{
@@ -9,9 +14,13 @@
   text-align: center;
   text-transform: uppercase;
   color: #FFF;
-  display: inline-block;
-  margin: @spacing-sm;
   animation: fadeIn 1s linear forwards;
+  display: block;
+
+  @media screen and (min-width: @screen-lg) {
+    margin: @spacing-sm;
+    display: inline-block;
+  }
 }
 
 @keyframes fadeIn {

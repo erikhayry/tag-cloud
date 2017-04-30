@@ -1,5 +1,4 @@
 import fetchData from '../utils/api'
-import mapper from '../utils/mapper/mapper';
 import mock from '../utils/mock';
 
 export const GET_TAGS = 'GET_TAGS';
@@ -24,7 +23,6 @@ export function getTags() {
         dispatch(fetchTagsAction());
 
         return fetchData()
-            .then(items => mapper(items))
             .then(mock)
             .then(items => {
                 dispatch(receiveTagsAction(items))

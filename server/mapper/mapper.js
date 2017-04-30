@@ -12,7 +12,7 @@ function sort(counted){
     let sortable = [];
 
     for (let section in counted) {
-        sortable.push({section: section, count: counted[section]});
+        sortable.push({name: section, count: counted[section]});
     }
 
     sortable.sort(function(a, b) {
@@ -28,8 +28,7 @@ function toWeightedTagList(items){
 }
 
 function mapper(json){
-    console.log(toWeightedTagList(json.response.results));
     return toWeightedTagList(json.response.results);
 }
 
-export default mapper
+module.exports =  mapper;

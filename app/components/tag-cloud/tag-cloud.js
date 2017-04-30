@@ -14,7 +14,7 @@ const TagCloud = ({ items, getTags, isLoading }) => {
             {items.length > 0 &&
             <ul className={"tag-cloud " +  classNameState}>
                 {items.map((item, index) =>
-                    <TagCloudItem key={index} index={index} section={item.section} count={item.count} max={max}/>
+                    <TagCloudItem key={index} index={index} name={item.name} count={item.count} max={max}/>
                 )}
             </ul>
             }
@@ -30,7 +30,7 @@ const TagCloud = ({ items, getTags, isLoading }) => {
 
 TagCloud.propTypes = {
     items: PropTypes.arrayOf(PropTypes.shape({
-        section: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
         count: PropTypes.number.isRequired
     }).isRequired).isRequired,
     getTags: PropTypes.func.isRequired,

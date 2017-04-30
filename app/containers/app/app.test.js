@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import { storeFake } from '../../__mocks__/store';
-import List from './list';
 import TagCloud from '../../components/tag-cloud/tag-cloud';
 import AppLoader from '../../components/app-loader/app-loader';
 import { expect } from 'chai';
@@ -15,20 +14,20 @@ describe('List Container', () => {
 
     beforeEach(() => {
         const store = storeFake({
-            series: {}
+            tags: {}
         });
 
         const wrapper = mount(
             <Provider store={store}>
-                <List
+                <TagCloud
                     items={[]}
-                    isFetching={true}
+                    isLoading={true}
                     getTags={() => {}}
                 />
             </Provider>
         );
 
-        Component = wrapper.find(List);
+        Component = wrapper.find(TagCloud);
         TagCloudComponent = Component.find(TagCloud);
         AppLoaderComponent = Component.find(AppLoader);
     });
