@@ -12,3 +12,4 @@ Visual presentation of the most common sections fetched from the [the Guadrian o
 
  * `key={YOUR_API_KEY} npm start` - Run app. If no key is set the default key 'test' will be used.
  * `npm test` - Test the app
+ * `npm build` - TODO - add build step and minimize and uglify code
