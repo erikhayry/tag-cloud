@@ -9,11 +9,26 @@ const TagCloud = ({ items, getTags, isLoading }) => {
            return acc > val.count ? acc : val.count;
     }, 0);
 
+    function shuffleArr(array) {
+        let currentIndex = array.length, temporaryValue, randomIndex;
+
+        while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
+
     return (
         <div className="tag-cloud-wrapper">
             {items.length > 0 &&
-            <ul className={"tag-cloud " +  classNameState}>
-                {items.map((item, index) =>
+            <div className={"tag-cloud " +  classNameState}>
+                {shuffleArr(items).map((item, index) =>
                     <TagCloudItem
                         key={index}
                         index={index}
@@ -23,7 +38,7 @@ const TagCloud = ({ items, getTags, isLoading }) => {
                         max={max}
                     />
                 )}
-            </ul>
+            </div>
             }
             {!isLoading && items.length == 0 &&
                 <div className="tag-cloud-empty">

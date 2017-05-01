@@ -15,6 +15,8 @@ describe('TagCloudItem', () => {
 
         expect(tagCloudItems).to.have.length(1);
         expect(tagCloudItems.text()).to.equal('Name 1');
+        expect(tagCloudItems.get(0).props.tabIndex).to.equal(10);
+
         expect(tagCloudItems.find('a')).to.have.length(1);
         expect(tagCloudItemLink.props.href).to.equal('www.to.name');
 

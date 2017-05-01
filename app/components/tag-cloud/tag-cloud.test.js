@@ -24,25 +24,6 @@ describe('TagCloud', () => {
         let tagCloudItems = seriesList.find(TagCloudItem);
 
         expect(tagCloudItems).to.have.length(3);
-
-        expect(tagCloudItems.get(0).props.index).to.equal(0);
-        expect(tagCloudItems.get(0).props.name).to.equal('Name 1');
-        expect(tagCloudItems.get(0).props.url).to.equal('url.to.name1');
-        expect(tagCloudItems.get(0).props.count).to.equal(3);
-        expect(tagCloudItems.get(0).props.max).to.equal(3);
-
-        expect(tagCloudItems.get(1).props.index).to.equal(1);
-        expect(tagCloudItems.get(1).props.name).to.equal('Name 2');
-        expect(tagCloudItems.get(1).props.url).to.equal('url.to.name2');
-        expect(tagCloudItems.get(1).props.count).to.equal(2);
-        expect(tagCloudItems.get(1).props.max).to.equal(3);
-
-        expect(tagCloudItems.get(2).props.index).to.equal(2);
-        expect(tagCloudItems.get(2).props.name).to.equal('Name 3');
-        expect(tagCloudItems.get(2).props.url).to.equal('url.to.name3');
-        expect(tagCloudItems.get(2).props.count).to.equal(1);
-        expect(tagCloudItems.get(2).props.max).to.equal(3);
-
         expect(seriesList.find('.is-loading')).to.have.length(0);
         expect(seriesList.find('.tag-cloud-btn')).to.have.length(1);
     });

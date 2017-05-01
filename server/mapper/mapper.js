@@ -1,3 +1,5 @@
+const baseURL = 'https://www.theguardian.com/';
+
 function count(allSections, {sectionName, sectionId}){
 
     if (sectionId in allSections) {
@@ -7,7 +9,7 @@ function count(allSections, {sectionName, sectionId}){
         allSections[sectionId] = {
             count: 1,
             name: sectionName,
-            url: 'https://www.theguardian.com/' + sectionId
+            url:  baseURL + sectionId
         };
     }
     return allSections;

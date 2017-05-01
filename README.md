@@ -10,6 +10,7 @@ Visual presentation of the most common sections fetched from the [the Guardian o
 
 ## Run
 
- * `key={YOUR_API_KEY} npm start` - Runs the app on http://localhost:8080/. If no key is set the default key 'test' will be used.
+ * `key=YOUR_API_KEY npm start` - Runs the app on http://localhost:8080/. Get YOUR_API_KEY from [the Guardian openplatform api](https://bonobo.capi.gutools.co.uk/register/developer)
+ * `npm start` - Runs the app on http://localhost:8080/ with the default key test
  * `npm test` - Test the app
- * `npm build` - TODO - add build step and minimize and uglify code
+ * `npm build` - NOT IMPLEMENTED - would add build step and minimize and uglify code
