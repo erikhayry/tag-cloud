@@ -6,7 +6,7 @@ const TagCloud = ({ items, getTags, isLoading }) => {
     let classNameState = isLoading ? 'is-loading' : '';
 
     let max = items.reduce((acc, val) => {
-           return acc > val.count ? acc : val.count;
+           return acc > val.links.length ? acc : val.links.length;
     }, 0);
 
     return (
@@ -18,7 +18,7 @@ const TagCloud = ({ items, getTags, isLoading }) => {
                         key={index}
                         index={index}
                         name={item.name}
-                        count={item.count}
+                        links={item.links}
                         max={max}
                     />
                 )}
@@ -42,7 +42,10 @@ const TagCloud = ({ items, getTags, isLoading }) => {
 TagCloud.propTypes = {
     items: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired,
-        count: PropTypes.number.isRequired
+        links: PropTypes.arrayOf(PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired
+        }).isRequired)
     }).isRequired).isRequired,
     getTags: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired

@@ -29,3 +29,12 @@ export function getTags() {
             })
     }
 }
+
+export const SET_ACTIVE_TAGS = 'SET_ACTIVE_TAGS';
+
+function setActiveTagsAction(tag, items) {
+    return {
+        type: SET_ACTIVE_TAGS,
+        items: items,
+    }
+}

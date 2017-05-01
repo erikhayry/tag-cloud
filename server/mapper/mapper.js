@@ -1,9 +1,17 @@
-function count(allSections, {sectionName}){
+function count(allSections, {sectionName, webUrl, webTitle}){
     if (sectionName in allSections) {
-        allSections[sectionName]++;
+        allSections[sectionName].items.push({
+            url: webUrl,
+            title: webTitle
+        });
     }
     else {
-        allSections[sectionName] = 1;
+        allSections[sectionName] = {
+            items: [{
+                url: webUrl,
+                title: webTitle
+            }]
+        };
     }
     return allSections;
 }
@@ -15,13 +23,13 @@ function sort(counted){
         if (counted.hasOwnProperty(section)){
             sortable.push({
                 name: section,
-                count: counted[section]
+                links: counted[section].items
             });
         }
     }
 
     sortable.sort(function(a, b) {
-        return b.count - a.count;
+        return b.links.length - a.links.length;
     });
 
     return sortable;

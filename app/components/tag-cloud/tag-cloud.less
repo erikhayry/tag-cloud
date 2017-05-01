@@ -42,10 +42,21 @@
   animation: fadeIn 1s linear forwards;
   display: block;
 
+  &.is-active{
+    .tag-cloud-item-links{
+      display: block;
+    }
+  }
+
   @media screen and (min-width: @screen-lg) {
     margin: @spacing-sm;
     display: inline-block;
   }
+}
+
+.tag-cloud-item-links{
+  display: none;
+  font-size: @font-size;
 }
 
 .tag-cloud-btn{
