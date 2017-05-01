@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { getBackgroundColor, getFontSize} from '../../utils/style-utils'
 
-const TagCloudItem = ({ name, count, max, index}) => {
+const TagCloudItem = ({ name, url, count, max, index}) => {
     const itemPercentage = (count / max) * 100;
 
     const style = {
@@ -14,13 +14,14 @@ const TagCloudItem = ({ name, count, max, index}) => {
 
     return (
         <li className="tag-cloud-item" style={style}>
-            {name}
+            <a href={url} target="_blank">{name}</a>
         </li>
     )
 };
 
 TagCloudItem.propTypes = {
     name: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
     count: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired,
     index: PropTypes.number.isRequired

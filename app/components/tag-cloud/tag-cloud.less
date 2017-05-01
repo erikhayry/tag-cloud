@@ -41,6 +41,16 @@
   color: @color-light;
   animation: fadeIn 1s linear forwards;
   display: block;
+  transition: opacity .2s ease-in-out;
+
+  &:hover{
+    opacity: 0.8;
+  }
+
+  a{
+    color: @color-light;
+    text-decoration: none;
+  }
 
   @media screen and (min-width: @screen-lg) {
     margin: @spacing-sm;

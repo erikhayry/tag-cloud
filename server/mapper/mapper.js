@@ -1,9 +1,14 @@
-function count(allSections, {sectionName}){
-    if (sectionName in allSections) {
-        allSections[sectionName]++;
+function count(allSections, {sectionName, sectionId}){
+
+    if (sectionId in allSections) {
+        allSections[sectionId].count++;
     }
     else {
-        allSections[sectionName] = 1;
+        allSections[sectionId] = {
+            count: 1,
+            name: sectionName,
+            url: 'https://www.theguardian.com/' + sectionId
+        };
     }
     return allSections;
 }
@@ -11,12 +16,9 @@ function count(allSections, {sectionName}){
 function sort(counted){
     let sortable = [];
 
-    for (let section in counted) {
-        if (counted.hasOwnProperty(section)){
-            sortable.push({
-                name: section,
-                count: counted[section]
-            });
+    for (let sectionId in counted) {
+        if (counted.hasOwnProperty(sectionId)){
+            sortable.push(counted[sectionId]);
         }
     }
 

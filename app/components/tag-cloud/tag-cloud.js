@@ -18,6 +18,7 @@ const TagCloud = ({ items, getTags, isLoading }) => {
                         key={index}
                         index={index}
                         name={item.name}
+                        url={item.url}
                         count={item.count}
                         max={max}
                     />
@@ -41,6 +42,7 @@ const TagCloud = ({ items, getTags, isLoading }) => {
 
 TagCloud.propTypes = {
     items: PropTypes.arrayOf(PropTypes.shape({
+        url: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         count: PropTypes.number.isRequired
     }).isRequired).isRequired,

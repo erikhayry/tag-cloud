@@ -7,9 +7,9 @@ import sinon from 'sinon';
 
 describe('TagCloud', () => {
     let items = [
-        {name: 'Name 1', count: 3},
-        {name: 'Name 2', count: 2},
-        {name: 'Name 3', count: 1}
+        {name: 'Name 1', count: 3, url:'url.to.name1'},
+        {name: 'Name 2', count: 2, url:'url.to.name2'},
+        {name: 'Name 3', count: 1, url:'url.to.name3'}
     ];
 
     it('should render a tag cloud', () => {
@@ -27,16 +27,19 @@ describe('TagCloud', () => {
 
         expect(tagCloudItems.get(0).props.index).to.equal(0);
         expect(tagCloudItems.get(0).props.name).to.equal('Name 1');
+        expect(tagCloudItems.get(0).props.url).to.equal('url.to.name1');
         expect(tagCloudItems.get(0).props.count).to.equal(3);
         expect(tagCloudItems.get(0).props.max).to.equal(3);
 
         expect(tagCloudItems.get(1).props.index).to.equal(1);
         expect(tagCloudItems.get(1).props.name).to.equal('Name 2');
+        expect(tagCloudItems.get(1).props.url).to.equal('url.to.name2');
         expect(tagCloudItems.get(1).props.count).to.equal(2);
         expect(tagCloudItems.get(1).props.max).to.equal(3);
 
         expect(tagCloudItems.get(2).props.index).to.equal(2);
         expect(tagCloudItems.get(2).props.name).to.equal('Name 3');
+        expect(tagCloudItems.get(2).props.url).to.equal('url.to.name3');
         expect(tagCloudItems.get(2).props.count).to.equal(1);
         expect(tagCloudItems.get(2).props.max).to.equal(3);
 
