@@ -13,8 +13,8 @@ const TagCloudItem = ({ name, url, count, max, index}) => {
     };
 
     return (
-        <li className="tag-cloud-item" style={style}>
-            <a href={url} target="_blank">{name}</a>
+        <li className="tag-cloud-item">
+            <a href={url} target="_blank" style={style}>{name}</a>
         </li>
     )
 };
