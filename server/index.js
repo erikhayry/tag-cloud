@@ -11,9 +11,8 @@ app.use(webpackDevMiddleware(compiler, {
     publicPath: '/'
 }));
 
-
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/../index.html')); //TODO fix path
+    res.sendFile(path.join(__dirname + '/../index.html'));
 });
 
 require('./routes')(app);

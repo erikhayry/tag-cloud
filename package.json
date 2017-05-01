@@ -1,13 +1,11 @@
 {
-  "name": "test",
+  "name": "tag cloud",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node server/index.js",
-    "start-dev": "webpack-dev-server --progress --colors",
-    "build": "webpack"
+    "start": "node server/index.js"
   },
   "author": "",
   "license": "ISC",

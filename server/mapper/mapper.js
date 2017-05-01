@@ -31,4 +31,4 @@ function mapper(json){
     return toWeightedTagList(json.response.results);
 }
 
-module.exports =  mapper;
+module.exports = mapper;
