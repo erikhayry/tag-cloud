@@ -24,6 +24,11 @@ const TagCloud = ({ items, getTags, isLoading }) => {
                 )}
             </ul>
             }
+            {!isLoading && items.length == 0 &&
+                <div className="tag-cloud-empty">
+                    No tags found
+                </div>
+            }
             {!isLoading &&
             <button className="tag-cloud-btn"
                     onClick={getTags}>

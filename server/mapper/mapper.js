@@ -12,7 +12,12 @@ function sort(counted){
     let sortable = [];
 
     for (let section in counted) {
-        sortable.push({name: section, count: counted[section]});
+        if (counted.hasOwnProperty(section)){
+            sortable.push({
+                name: section,
+                count: counted[section]
+            });
+        }
     }
 
     sortable.sort(function(a, b) {
@@ -28,7 +33,7 @@ function toWeightedTagList(items){
 }
 
 function mapper(json){
-    return toWeightedTagList(json.response.results);
+    return json.response ? toWeightedTagList(json.response.results) : [];
 }
 
 module.exports = mapper;

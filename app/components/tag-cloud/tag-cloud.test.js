@@ -44,6 +44,21 @@ describe('TagCloud', () => {
         expect(seriesList.find('.tag-cloud-btn')).to.have.length(1);
     });
 
+    it('should render an empty state', () => {
+        const seriesList = mount(
+            <TagCloud
+                items={[]}
+                getTags={() => {}}
+                isLoading={false}
+            />
+        );
+
+        expect(seriesList.find(TagCloudItem)).to.have.length(0);
+        expect(seriesList.find('.is-loading')).to.have.length(0);
+        expect(seriesList.find('.tag-cloud-btn')).to.have.length(1);
+        expect(seriesList.find('.tag-cloud-empty')).to.have.length(1);
+    });
+
     it('should render a loading state', () => {
         const seriesList = mount(
             <TagCloud

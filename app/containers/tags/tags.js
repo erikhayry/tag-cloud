@@ -42,7 +42,7 @@ function mapStateToProps(state) {
     const {
         items,
         isFetching
-    } = tags.items && tags.items.length > 0 ? tags : {
+    } = tags.items ? tags : {
         items: [],
         isFetching: true
     };
