@@ -16,7 +16,7 @@ class App extends Component {
 
     render(){
         return (
-            <div>
+            <div className="l-container">
                 <AppLoader
                     isLoading={this.props.isFetching}
                 />
@@ -37,7 +37,6 @@ App.propTypes = {
 };
 
 function mapStateToProps(state) {
-    console.log(state)
     const { tags } = state;
 
     const {

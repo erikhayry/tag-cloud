@@ -4,7 +4,9 @@ import { PropTypes }from 'prop-types'
 const AppLoader = ({ isLoading }) => {
     let classNameState = isLoading ? 'is-loading' : '';
     return (
-        <div className={"app-loader " + classNameState}>Loading</div>
+        <div className={"app-loader " + classNameState}>
+            <span className="app-loader-inner">Loading</span>
+        </div>
     )
 };
 

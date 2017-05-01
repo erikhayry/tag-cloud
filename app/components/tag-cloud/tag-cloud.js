@@ -10,7 +10,7 @@ const TagCloud = ({ items, getTags, isLoading }) => {
 
     return (
         //TODO accessibility
-        <div>
+        <div className="tag-cloud-wrapper">
             {items.length > 0 &&
             <ul className={"tag-cloud " +  classNameState}>
                 {items.map((item, index) =>
@@ -19,7 +19,7 @@ const TagCloud = ({ items, getTags, isLoading }) => {
             </ul>
             }
             {!isLoading &&
-            <button className="btn"
+            <button className="tag-cloud-btn"
                     onClick={getTags}>
                 Refresh
             </button>

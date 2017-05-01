@@ -1,13 +1,13 @@
 const express = require('express');
-const router = express.Router();              // get an instance of the express Router
+const router = express.Router();
 const fetch = require('isomorphic-fetch');
 const mapper = require('./mapper/mapper');
 const config = require('./config');
 
 function routes(app){
     router.get('/tags', function(req, res) {
-        //TODO cleanup
-        let url = config.api.urls.tags + `?page-size=${config.api.size}&api-key=${config.api.key}`;
+        let url = config.api.urls.search + `?order-by=newest&page-size=${config.api.size}&api-key=${config.api.key}`;
+        console.log(url)
         fetch(url)
             .then(response => response.json())
             .then(mapper)
@@ -20,6 +20,5 @@ function routes(app){
 
     app.use('/api', router);
 }
-
 
 module.exports =  routes;

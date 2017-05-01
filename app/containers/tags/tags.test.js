@@ -3,8 +3,9 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import { storeFake } from '../../__mocks__/store';
-import TagCloud from '../../components/tag-cloud/tag-cloud';
+import Tags from '../../containers/tags/tags';
 import AppLoader from '../../components/app-loader/app-loader';
+import TagCloud from '../../components/tag-cloud/tag-cloud';
 import { expect } from 'chai';
 
 describe('List Container', () => {
@@ -19,20 +20,19 @@ describe('List Container', () => {
 
         const wrapper = mount(
             <Provider store={store}>
-                <TagCloud
-                    items={[]}
-                    isLoading={true}
-                    getTags={() => {}}
+                <Tags items={[]}
+                      isFetching={true}
+                      getTags={() => {}}
                 />
             </Provider>
         );
 
-        Component = wrapper.find(TagCloud);
+        Component = wrapper.find(Tags);
         TagCloudComponent = Component.find(TagCloud);
         AppLoaderComponent = Component.find(AppLoader);
     });
 
-    it('should render TagCloudComponent', () => {
+    it('should render Tags container', () => {
         expect(Component).to.have.length(1);
         expect(TagCloudComponent).to.have.length(1);
         expect(AppLoaderComponent).to.have.length(1);
