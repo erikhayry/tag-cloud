@@ -10,17 +10,17 @@ describe('TagCloudItem', () => {
         );
 
         let tagCloudItems = tagCloud.find('.tag-cloud-item');
-        let tagCloudItemStyle = tagCloudItems.get(0).props.style;
         let tagCloudItemLink = tagCloudItems.find('a').get(0);
+        let tagCloudItemLinkStyle = tagCloudItemLink.props.style;
 
         expect(tagCloudItems).to.have.length(1);
         expect(tagCloudItems.text()).to.equal('Name 1');
         expect(tagCloudItems.find('a')).to.have.length(1);
         expect(tagCloudItemLink.props.href).to.equal('www.to.name');
 
-        expect(tagCloudItemStyle.color).to.equal('rgba(255,255,255,0)');
-        expect(tagCloudItemStyle.fontSize).to.equal('25%');
-        expect(tagCloudItemStyle.backgroundColor).to.equal('hsla(4, 25%, 58%, 1)');
-        expect(tagCloudItemStyle.animationDelay).to.equal('50ms');
+        expect(tagCloudItemLinkStyle.color).to.equal('rgba(255,255,255,0)');
+        expect(tagCloudItemLinkStyle.fontSize).to.equal('25%');
+        expect(tagCloudItemLinkStyle.backgroundColor).to.equal('hsla(4, 25%, 58%, 1)');
+        expect(tagCloudItemLinkStyle.animationDelay).to.equal('50ms');
     });
 });
