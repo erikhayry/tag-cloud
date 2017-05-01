@@ -24,6 +24,8 @@ describe('TagCloud', () => {
         let tagCloudItems = seriesList.find(TagCloudItem);
 
         expect(tagCloudItems).to.have.length(3);
+        expect(tagCloudItems.get(0).props.max).to.equal(3);
+        
         expect(seriesList.find('.is-loading')).to.have.length(0);
         expect(seriesList.find('.tag-cloud-btn')).to.have.length(1);
     });
