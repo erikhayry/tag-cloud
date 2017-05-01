@@ -7,7 +7,7 @@ const config = require('./config');
 function routes(app){
     router.get('/tags', function(req, res) {
         let url = config.api.urls.search + `?order-by=newest&page-size=${config.api.size}&api-key=${config.api.key}`;
-        console.log(url)
+
         fetch(url)
             .then(response => response.json())
             .then(mapper)
