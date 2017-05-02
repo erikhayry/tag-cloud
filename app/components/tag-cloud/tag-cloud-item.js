@@ -18,9 +18,9 @@ const TagCloudItem = ({ name, url, count, max, index}) => {
     };
 
     return (
-        <div className="tag-cloud-item" tabIndex={tabIndex} style={itemStyle}>
+        <li className="tag-cloud-item" tabIndex={tabIndex} style={itemStyle}>
             <a href={url} target="_blank" style={linkStyle}>{name}</a>
-        </div>
+        </li>
     )
 };
 

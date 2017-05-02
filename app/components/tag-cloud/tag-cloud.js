@@ -30,7 +30,7 @@ const TagCloud = ({ items, getTags, isLoading }) => {
     return (
         <div className="tag-cloud-wrapper">
             {items.length > 0 &&
-            <div className={"tag-cloud " +  classNameState}>
+            <ul className={"tag-cloud " +  classNameState}>
                 {shuffleArr(items, isLoading).map((item, index) =>
                     <TagCloudItem
                         key={index}
@@ -41,7 +41,7 @@ const TagCloud = ({ items, getTags, isLoading }) => {
                         max={max}
                     />
                 )}
-            </div>
+            </ul>
             }
             {!isLoading && items.length == 0 &&
                 <div className="tag-cloud-empty">
