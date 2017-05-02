@@ -2,6 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TagCloudItem from './tag-cloud-item'
 
+function shuffleArr(array, skipShuffle){
+    if(skipShuffle){
+        return array;
+    }
+    let currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
 const TagCloud = ({ items, getTags, isLoading }) => {
     let classNameState = isLoading ? 'is-loading' : '';
 
@@ -9,26 +27,11 @@ const TagCloud = ({ items, getTags, isLoading }) => {
            return acc > val.count ? acc : val.count;
     }, 0);
 
-    function shuffleArr(array) {
-        let currentIndex = array.length, temporaryValue, randomIndex;
-
-        while (0 !== currentIndex) {
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
-        }
-
-        return array;
-    }
-
     return (
         <div className="tag-cloud-wrapper">
             {items.length > 0 &&
             <div className={"tag-cloud " +  classNameState}>
-                {shuffleArr(items).map((item, index) =>
+                {shuffleArr(items, isLoading).map((item, index) =>
                     <TagCloudItem
                         key={index}
                         index={index}

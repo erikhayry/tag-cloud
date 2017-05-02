@@ -28,7 +28,7 @@ function sort(counted){
         return b.count - a.count;
     });
 
-    return sortable;
+    return sortable.length > 100 ? sortable.splice(0, 100) : sortable;
 }
 
 
